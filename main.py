@@ -16,7 +16,7 @@ def get_jobs(filter_1, filter_2, filter_3):
         list of jobs.
     """
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         page = browser.new_page()
         page.goto("https://icapital.com/")
 
@@ -73,7 +73,9 @@ def main():
     filter_1 = "All Departments" 
     filter_2 = "CA ON - Toronto"
     filter_3 = "Full-time"
+    print("Scrape processing ....")
     get_jobs(filter_1, filter_2, filter_3)
+    print("iCapital website scrape finished!")
    
 
 if __name__ == "__main__":
